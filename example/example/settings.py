@@ -77,20 +77,14 @@ WSGI_APPLICATION = 'example.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "psqlextra.backend",
-        "NAME": "test",
-        "USER": "wcc_spider",
-        "PASSWORD": "wcc_spider_2019",
-        "HOST": "192.168.199.196",
-        "PORT": 5433,
-        "OPTIONS": {"options": f"-c search_path=django"},
-        "CONN_MAX_AGE": 60,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     },
 }
 
 ASGI_APPLICATION = "example.routing.application"
 CHANNEL_LAYERS = {
-    "default": {"BACKEND": "channels_redis.core.RedisChannelLayer", "CONFIG": {"hosts": ["redis://192.168.199.75:6379/5"],},},
+    "default": {"BACKEND": "channels_redis.core.RedisChannelLayer", "CONFIG": {"hosts": ["redis://localhost:6379/5"],},},
 }
 
 
