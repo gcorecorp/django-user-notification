@@ -123,13 +123,6 @@ NOTIFICATION_BACKENDS = [
     'notification.backends.DingDingBotNotificationBackend'
 ]
 
-EMAIL_TIMEOUT = 5
-EMAIL_HOST = 'smtp.qiye.163.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'cpsmaster@wochacha.com'
-EMAIL_HOST_PASSWORD = '$uxLdlW0'
-DEFAULT_FROM_EMAIL = 'cpsmaster@wochacha.com'
 
 DINGDING_WEBHOOK = (
     'https://oapi.dingtalk.com/robot/send?access_token=118234dd124cf8cc06f0dd8e304f450790088889190dedc7283a2aa900968392'
