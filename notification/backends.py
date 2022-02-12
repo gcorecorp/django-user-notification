@@ -135,7 +135,7 @@ class DingDingBotNotificationBackend(NotificationBackend):
     A backend handle dingding message.
     """
 
-    default_phone_field = "phone_num"
+    default_phone_field = "phone"
     message_class = DingDingMessage
 
     def __init__(self, webhook=None, user_phone_field=None, **kwargs):
