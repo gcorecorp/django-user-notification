@@ -10,18 +10,18 @@ from django.core.mail import EmailMessage as DjangoEmailMessage
 
 
 class Notification(models.Model):
-    READY = 0
+    PENDING = 0
     SUCCESS = 1
     FAILED = 2
 
     PUSH_STATE_CHOICE = (
-        (READY, _('Ready')),
+        (PENDING, _('Pending')),
         (SUCCESS, _('Success')),
         (FAILED, _('Failure')),
     )
 
     has_read = models.BooleanField(verbose_name=_('Read Or Not'), default=False)
-    push_state = models.PositiveIntegerField(choices=PUSH_STATE_CHOICE, default=READY)
+    push_state = models.PositiveIntegerField(choices=PUSH_STATE_CHOICE, default=PENDING)
     to = models.ManyToManyField(settings.AUTH_USER_MODEL, verbose_name=_('Receivers'))
     etag = models.TextField(verbose_name=_('Etag'), null=True, blank=True)
     content_type = models.ForeignKey(
