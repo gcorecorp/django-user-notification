@@ -124,5 +124,5 @@ NOTIFICATION_BACKENDS = [
 
 
 DINGDING_WEBHOOK = (
-    'https://oapi.dingtalk.com/robot/send?access_token=118234dd124cf8cc06f0dd8e304f450790088889190dedc7283a2aa900968392'
+    'https://oapi.dingtalk.com/robot/send?access_token=xxxx'
 )

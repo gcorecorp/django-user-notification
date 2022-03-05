@@ -1,12 +1,12 @@
 # django-user-notification
 
-[![GitHub license](https://img.shields.io/github/license/aiden520/django-user-notification)](https://github.com/aiden520/django-user-notification/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/anyidea/django-user-notification)](https://github.com/anyidea/django-user-notification/blob/master/LICENSE)
 [![pypi-version](https://img.shields.io/pypi/v/django-user-notification.svg)](https://pypi.python.org/pypi/drfexts)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/django-user-notification)
 [![PyPI - Django Version](https://img.shields.io/badge/django-%3E%3D3.0-44B78B)](https://www.djangoproject.com/)
-[![Build Status](https://app.travis-ci.com/aiden520/django-user-notification.svg?branch=master)](https://app.travis-ci.com/aiden520/django-user-notification)
+[![Build Status](https://app.travis-ci.com/anyidea/django-user-notification.svg?branch=master)](https://app.travis-ci.com/anyidea/django-user-notification)
 
-**Extensions for Django REST Framework**
+**A Notification Backend For Django**
 
 Installation
 ------------
@@ -15,26 +15,37 @@ Installation
 $ pip install django-user-notification
 ```
 
-Usage
+Quick Start
 -----
 
-*views.py*
+1) Add default notification backend and set dingding webhook url.
 
 ``` {.python}
-from rest_framework.views import APIView
-from rest_framework.settings import api_settings
-from drfexts.viewsets import ExportMixin
+NOTIFICATION_BACKENDS = [
+    'notification.backends.DingDingBotNotificationBackend'
+]
+DINGDING_WEBHOOK = (
+    'https://oapi.dingtalk.com/robot/send?access_token=xxxx'
+)
+```
+2) Send notification to django users.
+``` {.python}
+from django.contrib.auth import get_user_model
+from notification.backends import notify_by_dingding
 
-class MyView (ExportMixin, APIView):
-    ...
+User = get_user_model()
+
+receiver = User.objects.first()
+
+notify_by_dingding([receiver,], message="This is a test notification")
 ```
 
-Ordered Fields
+Custom Message Template
 --------------
 
 By default, a `CSVRenderer` will output fields in sorted order. To
-specify an alternative field ordering you can override the `header`
-attribute. There are two ways to do this:
+specify a custom message template you can provide the `template_code`
+and `context` parameters. There are two ways to do this:
 
 1)  Create a new renderer class and override the `header` attribute
     directly:
@@ -71,35 +82,6 @@ attribute. There are two ways to do this:
     >     ...
     > ```
 
-Labeled Fields
---------------
-
-Custom labels can be applied to the `CSVRenderer` using the `labels`
-dict attribute where each key corresponds to the header and the value
-corresponds to the custom label for that header.
-
-1\) Create a new renderer class and override the `header` and `labels`
-attribute directly:
-
-> ``` {.python}
-> class MyBazRenderer (CSVRenderer):
->     header = ['foo.bar']
->     labels = {
->         'foo.bar': 'baz'
->     }
-> ```
-
-Pagination
-----------
-
-Using the renderer with paginated data is also possible with the new
-[PaginatedCSVRenderer]{.title-ref} class and should be used with views
-that paginate data
-
-For more information about using renderers with Django REST Framework,
-see the [API
-Guide](http://django-rest-framework.org/api-guide/renderers/) or the
-[Tutorial](http://django-rest-framework.org/tutorial/1-serialization/).
 
 Running the tests
 -----------------
@@ -112,7 +94,7 @@ $ ./manage.py test
 
 ### Changelog
 
-0.1.0
+0.5.0
 -----
 
 -   Initial release
