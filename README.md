@@ -1,5 +1,4 @@
 # django-user-notification
-=======
 
 [![GitHub license](https://img.shields.io/github/license/aiden520/django-user-notification)](https://github.com/aiden520/django-user-notification/blob/master/LICENSE)
 [![pypi-version](https://img.shields.io/pypi/v/django-user-notification.svg)](https://pypi.python.org/pypi/drfexts)
