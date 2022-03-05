@@ -12,7 +12,7 @@ Installation
 ------------
 
 ``` {.bash}
-$ pip install drfexts
+$ pip install django-user-notification
 ```
 
 Usage
