@@ -9,7 +9,7 @@
 
 Overview
 -----
-Django REST framework is a powerful and flexible toolkit for building Web APIs.
+Django user notification is intended to provide a way to send multiple types of notification messages to django users out of box. docs on the way...
 
 Requirements
 -----
@@ -38,11 +38,11 @@ INSTALLED_APPS = [
 Quick Start
 -----
 
-Let's take a look at a quick example of using REST framework to build a simple model-backed API for accessing users and groups.
+Let's take a look at a quick start of using Django user notification to send notification messages to users.
 
-Startup up a new project like so...
+Run the `notification` migrations using:
 
-    ./manage.py migrate
+    python manage.py migrate notification
 
 
 Add the following to your `settings.py` module:
@@ -78,7 +78,7 @@ Let's send a notification
 
 ``` {.python}
 from django.contrib.auth import get_user_model
-from notification.backends import notify_by_dingding
+from notification.backends import notify_by_email, notify_by_dingtalk_workmessage
 
 User = get_user_model()
 
