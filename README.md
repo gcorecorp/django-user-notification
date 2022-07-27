@@ -140,4 +140,4 @@ $ ./manage.py test
 
 ## Thanks
 
-[![PyCharm](docs/pycharm.svg)](https://www.jetbrains.com/?from=drfexts)
+[![PyCharm](docs/pycharm.svg)](https://www.jetbrains.com/?from=django-user-notification)
