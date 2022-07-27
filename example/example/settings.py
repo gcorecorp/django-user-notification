@@ -131,27 +131,6 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 
-DJANGO_USER_NOTIFICATION = {
-    "aliyunsms": {
-        "access_key_id": "LTAI5tCbzpHzrAEsbxRnHHWH",
-        "access_key_secret": "CeqrfZcRlivtVhuvI4lpquvJqqOyyg",
-        "sign_name": "我查查",
-    },
-    "dingtalkchatbot": {
-        "webhook": "https://oapi.dingtalk.com/robot/send?access_token=8017eadad7ddcaeab416b9644b25b8144218ccc8263598827562f2aac31888f9",  # noqa
-    },
-    "dingtalkworkmessage": {
-        "agent_id": 1592385868,
-        "app_key": "dingms4n630kawhbj3ka",
-        "app_secret": "Lw_jZ_z_8kcralKGjeY8BdRM0JMzjZhNJsZqhGoDJn1mAUySANnF-pNlXGOD0yT4",
-    },
-    "dingtalktodotask": {
-        "app_key": "dingms4n630kawhbj3ka",
-        "app_secret": "Lw_jZ_z_8kcralKGjeY8BdRM0JMzjZhNJsZqhGoDJn1mAUySANnF-pNlXGOD0yT4",
-    },
-}
-
-
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = "139.224.217.101"
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-port
