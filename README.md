@@ -111,7 +111,16 @@ and `context` parameters.
 notify_by_email([recipient], template_code="TMP01", context={"content": "Hello"})
 ```
 
+Supported notification backends
+-----------------------------
 
+- `DummyNotificationBackend`: send dummy message
+- `EmailNotificationBackend`: send email notification.
+- `WebsocketNotificationBackend`: send webdocket notification, need `channels` installed
+- `AliyunSMSNotificationBackend`: send aliyun sms notification.
+- `DingTalkChatBotNotificationBackend`: send dingtalk chatbot notification.
+- `DingTalkTODOTaskNotificationBackend`: send dingtalk todo tasks notification
+- `DingTalkWorkMessageNotificationBackend`: send dingtalk work message notification.
 
 Running the tests
 -----------------
