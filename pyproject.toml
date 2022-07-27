@@ -1,6 +1,49 @@
+[tool.black]
+line-length = 89
+target-version = ['py38', 'py39']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+  | profiling
+)/
+'''
+
+[tool.isort]
+profile = "black"
+known_first_party = ["notification"]
+default_section = "THIRDPARTY"
+skip = ["venv/", ".venv/"]
+skip_glob = ["**/migrations/*.py"]
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+
+[tool.commitizen]
+version = "0.7.0"
+changelog_start_rev = "0.7.0"
+tag_format = "v$major.$minor.$patch$prerelease"
+version_files = [
+    "pyproject.toml:version",
+    "__init__.py"
+]
+
 [tool.poetry]
 name = "django-user-notification"
-version = "0.5.0"
+version = "0.7.0"
 description = "Django message notification package"
 authors = ["Aiden Lu <allaher@icloud.com>"]
 readme = "README.md"
@@ -23,13 +66,15 @@ include = [
 [tool.poetry.dependencies]
 python = ">=3.8"
 django = ">=3.2"
-django-filter = ">=21.1"
-djangorestframework = ">=3.13.1"
-uvicorn = ">=0.16.0"
-channels = ">=3.0.4"
 requests = "^2.27.1"
+channels = { version=">=3.0.4", optional=true }
+alibabacloud-dysmsapi20170525 = { version=">=2.0.16", optional=true }
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.extras]
+channels = ["channels"]
+aliyunsms = ["alibabacloud-dysmsapi20170525"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

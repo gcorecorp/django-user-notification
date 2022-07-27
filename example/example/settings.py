@@ -13,14 +13,14 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'no(dol!6p4f+1lx@(46#^q5%uv=wzw$kqsfai$f!rqm3#tbe(c'
+SECRET_KEY = "no(dol!6p4f+1lx@(46#^q5%uv=wzw$kqsfai$f!rqm3#tbe(c"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,45 +31,45 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
     "myapp",
     "notification",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'example.urls'
+ROOT_URLCONF = "example.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'example.wsgi.application'
+WSGI_APPLICATION = "example.wsgi.application"
 
 
 # Database
@@ -77,14 +77,19 @@ WSGI_APPLICATION = 'example.wsgi.application'
 
 DATABASES = {
     "default": {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     },
 }
 
 ASGI_APPLICATION = "example.routing.application"
 CHANNEL_LAYERS = {
-    "default": {"BACKEND": "channels_redis.core.RedisChannelLayer", "CONFIG": {"hosts": ["redis://localhost:6379/5"],},},
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": ["redis://localhost:6379/5"],
+        },
+    },
 }
 
 
@@ -92,18 +97,26 @@ CHANNEL_LAYERS = {
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
 ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -115,14 +128,31 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-NOTIFICATION_BACKENDS = [
-    'notification.backends.EmailNotificationBackend',
-    'notification.backends.WebsocketNotificationBackend',
-    'notification.backends.DingDingBotNotificationBackend'
-]
+STATIC_URL = "/static/"
 
 
-DINGDING_WEBHOOK = (
-    'https://oapi.dingtalk.com/robot/send?access_token=xxxx'
-)
+DJANGO_USER_NOTIFICATION = {
+    "aliyunsms": {
+        "access_key_id": "LTAI5tCbzpHzrAEsbxRnHHWH",
+        "access_key_secret": "CeqrfZcRlivtVhuvI4lpquvJqqOyyg",
+        "sign_name": "我查查",
+    },
+    "dingtalkchatbot": {
+        "webhook": "https://oapi.dingtalk.com/robot/send?access_token=8017eadad7ddcaeab416b9644b25b8144218ccc8263598827562f2aac31888f9",  # noqa
+    },
+    "dingtalkworkmessage": {
+        "agent_id": 1592385868,
+        "app_key": "dingms4n630kawhbj3ka",
+        "app_secret": "Lw_jZ_z_8kcralKGjeY8BdRM0JMzjZhNJsZqhGoDJn1mAUySANnF-pNlXGOD0yT4",
+    },
+    "dingtalktodotask": {
+        "app_key": "dingms4n630kawhbj3ka",
+        "app_secret": "Lw_jZ_z_8kcralKGjeY8BdRM0JMzjZhNJsZqhGoDJn1mAUySANnF-pNlXGOD0yT4",
+    },
+}
+
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-host
+EMAIL_HOST = "139.224.217.101"
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-port
+EMAIL_PORT = 1025

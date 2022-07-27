@@ -24,27 +24,23 @@ class NotificationConsumer(AsyncJsonWebsocketConsumer):
             # Get the group to which user is to be subscribed.
             self.group_name = self.scope["user"].group_name
             # Join the group
-            await self.channel_layer.group_add(
-                self.group_name,
-                self.channel_name
-            )
+            await self.channel_layer.group_add(self.group_name, self.channel_name)
 
     async def disconnect(self, close_code):
         # Leave room group
         if hasattr(self, "group_name"):
-            await self.channel_layer.group_discard(
-                self.group_name,
-                self.channel_name
-            )
+            await self.channel_layer.group_discard(self.group_name, self.channel_name)
 
     async def notify_message(self, event):
         """
         Send message to WebSocket
         """
-        await self.send_json({
-            'msg_type': 'notification',
-            'message': event['message'],
-        })
+        await self.send_json(
+            {
+                "msg_type": "notification",
+                "message": event["message"],
+            }
+        )
 
     async def receive_json(self, content, **kwargs):
         """
@@ -54,7 +50,7 @@ class NotificationConsumer(AsyncJsonWebsocketConsumer):
         await self.channel_layer.group_send(
             self.group_name,
             {
-                'type': 'notify.message',
-                'message': content['message'],
-            }
+                "type": "notify.message",
+                "message": content["message"],
+            },
         )
