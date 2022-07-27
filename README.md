@@ -9,7 +9,8 @@
 
 Overview
 -----
-Django user notification is intended to provide a way to send multiple types of notification messages to django users out of box. docs on the way...
+Django user notification is intended to provide a way to send multiple types of notification messages to django users out of box
+ and docs are on the way...
 
 Requirements
 -----
