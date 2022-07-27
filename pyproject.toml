@@ -33,17 +33,17 @@ force_grid_wrap = 0
 use_parentheses = true
 
 [tool.commitizen]
-version = "0.7.0"
+version = "1.0.0"
 changelog_start_rev = "0.7.0"
 tag_format = "v$major.$minor.$patch$prerelease"
 version_files = [
     "pyproject.toml:version",
-    "__init__.py"
+    "notification/__init__.py"
 ]
 
 [tool.poetry]
 name = "django-user-notification"
-version = "0.7.0"
+version = "1.0.0"
 description = "Django message notification package"
 authors = ["Aiden Lu <allaher@icloud.com>"]
 readme = "README.md"
