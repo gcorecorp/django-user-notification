@@ -111,7 +111,7 @@ and `context` parameters.
 notify_by_email([recipient], template_code="TMP01", context={"content": "Hello"})
 ```
 
-Supported notification backends
+Supported backends
 -----------------------------
 
 - `DummyNotificationBackend`: send dummy message
