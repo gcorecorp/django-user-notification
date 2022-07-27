@@ -12,15 +12,27 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+import environ
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+APPS_DIR = os.path.join(BASE_DIR, "scf")
+env = environ.Env()
+
+READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=True)
+if READ_DOT_ENV_FILE:
+    # OS environment variables take precedence over variables from .env
+    # env.read_env(str(ROOT_DIR / ".env"))
+    # 解决windows系统编码格式默认为gbk从而导致的文件无法读取问题
+    with open(os.path.join(BASE_DIR, ".env"), encoding="utf-8") as env_fo:
+        env.read_env(env_fo)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "no(dol!6p4f+1lx@(46#^q5%uv=wzw$kqsfai$f!rqm3#tbe(c"
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -131,7 +143,28 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 
+DJANGO_USER_NOTIFICATION = {
+    "aliyunsms": {
+        "access_key_id": env("ACCESS_KEY_ID"),
+        "access_key_secret": env("ACCESS_KEY_SECRET"),
+        "sign_name": env("SIGN_NAME"),
+    },
+    "dingtalkchatbot": {
+        "webhook": env("DINGTALK_WEBHOOK"),  # noqa
+    },
+    "dingtalkworkmessage": {
+        "agent_id": env.int("DINGTALK_AGENT_ID"),
+        "app_key": env("DINGTALK_APP_KEY"),
+        "app_secret": env("DINGTALK_APP_SECRET"),
+    },
+    "dingtalktodotask": {
+        "app_key": env("DINGTALK_APP_KEY"),
+        "app_secret": env("DINGTALK_APP_SECRET"),
+    },
+}
+
+
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
-EMAIL_HOST = "139.224.217.101"
+EMAIL_HOST = env("EMAIL_HOST")
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-port
 EMAIL_PORT = 1025
