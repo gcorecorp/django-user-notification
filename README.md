@@ -51,7 +51,7 @@ Add the following to your `settings.py` module:
 ```python
 INSTALLED_APPS = [
     ...  # Make sure to include the default installed apps here.
-    'rest_framework',
+    'notification',
 ]
 
 DJANGO_USER_NOTIFICATION = {
