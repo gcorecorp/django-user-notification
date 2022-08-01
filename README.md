@@ -1,6 +1,7 @@
 # Django user notification
 
 [![GitHub license](https://img.shields.io/github/license/anyidea/django-user-notification)](https://github.com/anyidea/django-user-notification/blob/master/LICENSE)
+[![Documentation Status](https://readthedocs.org/projects/django-user-notification/badge/?version=latest)](https://django-user-notification.readthedocs.io/en/latest/?badge=latest)
 [![pypi-version](https://img.shields.io/pypi/v/django-user-notification.svg)](https://pypi.python.org/pypi/django-user-notification)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/django-user-notification)
 [![PyPI - Django Version](https://img.shields.io/badge/django-%3E%3D3.1-44B78B)](https://www.djangoproject.com/)

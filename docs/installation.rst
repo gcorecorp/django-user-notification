@@ -32,13 +32,13 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/anyidea/notification
+    $ git clone git://github.com/anyidea/django-user-notification
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl -OJL https://github.com/anyidea/notification/tarball/master
+    $ curl -OJL https://github.com/anyidea/django-user-notification/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/anyidea/notification
-.. _tarball: https://github.com/anyidea/notification/tarball/master
+.. _Github repo: https://github.com/anyidea/django-user-notification
+.. _tarball: https://github.com/anyidea/django-user-notification/tarball/master
