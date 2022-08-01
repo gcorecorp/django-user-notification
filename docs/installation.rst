@@ -12,7 +12,7 @@ To install django-user-notification, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install notification
+    $ pip install django-user-notification
 
 This is the preferred method to install django-user-notification, as it will always install the most recent stable release.
 
