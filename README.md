@@ -8,7 +8,6 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Build Status](https://app.travis-ci.com/anyidea/django-user-notification.svg?branch=master)](https://app.travis-ci.com/anyidea/django-user-notification)
 
-
 Overview
 -----
 Django user notification is intended to provide a way to send multiple types of notification messages to django users out of box.
