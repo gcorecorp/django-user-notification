@@ -90,6 +90,7 @@ User = get_user_model()
 
 recipient = User.objects.first()
 
+
 # send a dingtalk work message notification
 notify_by_dingtalk_workmessage([recipient], phone_field="phone", title="This is a title", message="A test message")
 
